@@ -28,7 +28,6 @@ class MyNotes: ObservableObject, Loginable {
     
     func tryLoginWithUsername(_ username: String, andPassword password: String) {
         
-        
         do {
             let (username, loginToken) = try makeMockLoginRequest(username, andPassword: password)
             

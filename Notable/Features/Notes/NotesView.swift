@@ -10,21 +10,33 @@ import CoreData
 
 struct NotesView: View {
     
+    private struct Constants {
+        
+        static let navigationTitle = "MyNotes"
+        static let addNoteIcon = "plus"
+    }
+    
     @EnvironmentObject private var myNotes: MyNotes
+    
+    @State private var isAddNotePresented: Bool = false
     
     var body: some View {
         
         NavigationView {
-            List {
-                
+            Group {
+                if let notes = myNotes.user?.notes?.allObjects as? [Note] {
+                    List (notes) { note in
+                        Text(note.timestamp?.description ?? "")
+                    }
+                }
             }
-        }
-        .onAppear(perform: {
-            //            isLoginScreenPresented = (myNotes.user == nil)
-        })
-        .task {
-            // fetch logged in user
-            
+            .navigationTitle(Constants.navigationTitle)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    addNoteButton
+                }
+            }
         }
         .fullScreenCover(
             isPresented: $myNotes.presentLoginScreen) {
@@ -37,7 +49,19 @@ struct NotesView: View {
                         }
                     }
             }
+            
         
+    }
+    
+    var addNoteButton: some View {
+        Button {
+            isAddNotePresented = true
+        } label: {
+            Image(systemName: Constants.addNoteIcon)
+        }
+        .sheet(isPresented: $isAddNotePresented) {
+            AddNoteView(isPresented: $isAddNotePresented)
+        }
     }
     
 }

@@ -23,6 +23,10 @@ class StorageProvider {
         
         let storageProvider = StorageProvider(inMemory: true)
         
+        // comment out if not wanting to have a logged in user
+        try? storageProvider.addUserWithUsername("Test", andLoginToken: "some-login-token")
+        try? storageProvider.save()
+        
         return storageProvider
     }
     
@@ -44,7 +48,6 @@ class StorageProvider {
                 
                 print("Successfully loaded persistent stores.")
             }
-            
         }
         
     }

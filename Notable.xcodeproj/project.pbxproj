@@ -25,6 +25,7 @@
 		845E0BD929CD2E6700D9FE86 /* NatableUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */; };
 		845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */; };
 		845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */; };
+		84FCE35629CE5FB90001FB23 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35529CE5FB90001FB23 /* AddNoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatableUserTests.swift; sourceTree = "<group>"; };
 		845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
+		84FCE35529CE5FB90001FB23 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				845E0BDC29CD489A00D9FE86 /* Features */,
-				845E0BCD29CD1F2D00D9FE86 /* Services */,
+				845E0BCD29CD1F2D00D9FE86 /* Core */,
 				845E0B8A29CD138600D9FE86 /* NotableApp.swift */,
 				845E0B8E29CD138600D9FE86 /* Assets.xcassets */,
 				845E0B9029CD138600D9FE86 /* Preview Content */,
@@ -173,13 +175,13 @@
 			path = Subclasses;
 			sourceTree = "<group>";
 		};
-		845E0BCD29CD1F2D00D9FE86 /* Services */ = {
+		845E0BCD29CD1F2D00D9FE86 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				845E0BCE29CD1F3D00D9FE86 /* Login */,
 				845E0BC329CD191B00D9FE86 /* Storage */,
 			);
-			path = Services;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		845E0BCE29CD1F3D00D9FE86 /* Login */ = {
@@ -212,6 +214,7 @@
 			children = (
 				845E0BD529CD214A00D9FE86 /* MyNotes.swift */,
 				845E0B8C29CD138600D9FE86 /* NotesView.swift */,
+				84FCE35529CE5FB90001FB23 /* AddNoteView.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				845E0B8D29CD138600D9FE86 /* NotesView.swift in Sources */,
 				845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */,
 				845E0BCB29CD19C600D9FE86 /* Note+CoreDataClass.swift in Sources */,
+				84FCE35629CE5FB90001FB23 /* AddNoteView.swift in Sources */,
 				845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */,
 				845E0B8B29CD138600D9FE86 /* NotableApp.swift in Sources */,
 				845E0BD029CD1F5400D9FE86 /* Loginable.swift in Sources */,
