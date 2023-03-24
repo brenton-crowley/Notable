@@ -20,13 +20,20 @@ struct NotesView: View {
     
     @State private var isAddNotePresented: Bool = false
     
+    private var userNotes: [Note]? {
+        if let notes = myNotes.user?.notes?.allObjects as? [Note] {
+            return notes.sorted { $0.timestamp ?? Date() < $1.timestamp ?? Date() }
+        }
+        return nil
+    }
+    
     var body: some View {
         
         NavigationView {
             Group {
-                if let notes = myNotes.user?.notes?.allObjects as? [Note] {
+                if let notes = userNotes {
                     List (notes) { note in
-                        Text(note.timestamp?.description ?? "")
+                        Text(note.noteName ?? "")
                     }
                 }
             }
@@ -38,6 +45,9 @@ struct NotesView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            
+        })
         .fullScreenCover(
             isPresented: $myNotes.presentLoginScreen) {
                 UserLoginView(isPresented: $myNotes.presentLoginScreen)
@@ -71,6 +81,6 @@ struct NotesView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NotesView()
-            .environmentObject(MyNotes(storageProvider: StorageProvider.preview))
+            .environmentObject(MyNotes(storageProvider: StorageProvider.previewWithNotes))
     }
 }

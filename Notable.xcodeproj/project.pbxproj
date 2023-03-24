@@ -16,8 +16,6 @@
 		845E0BAB29CD138700D9FE86 /* NotableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BAA29CD138700D9FE86 /* NotableUITests.swift */; };
 		845E0BAD29CD138700D9FE86 /* NotableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BAC29CD138700D9FE86 /* NotableUITestsLaunchTests.swift */; };
 		845E0BBA29CD140900D9FE86 /* NotableLoginableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BB929CD140900D9FE86 /* NotableLoginableTests.swift */; };
-		845E0BCB29CD19C600D9FE86 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BC729CD19C600D9FE86 /* Note+CoreDataClass.swift */; };
-		845E0BCC29CD19C600D9FE86 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BC829CD19C600D9FE86 /* Note+CoreDataProperties.swift */; };
 		845E0BD029CD1F5400D9FE86 /* Loginable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BCF29CD1F5400D9FE86 /* Loginable.swift */; };
 		845E0BD329CD200600D9FE86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD129CD200600D9FE86 /* User+CoreDataClass.swift */; };
 		845E0BD429CD200600D9FE86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD229CD200600D9FE86 /* User+CoreDataProperties.swift */; };
@@ -26,6 +24,9 @@
 		845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */; };
 		845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */; };
 		84FCE35629CE5FB90001FB23 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35529CE5FB90001FB23 /* AddNoteView.swift */; };
+		84FCE35829CE63E90001FB23 /* NotableNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35729CE63E90001FB23 /* NotableNoteTests.swift */; };
+		84FCE35B29CE65EC0001FB23 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35929CE65EC0001FB23 /* Note+CoreDataClass.swift */; };
+		84FCE35C29CE65EC0001FB23 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35A29CE65EC0001FB23 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +59,6 @@
 		845E0BAA29CD138700D9FE86 /* NotableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableUITests.swift; sourceTree = "<group>"; };
 		845E0BAC29CD138700D9FE86 /* NotableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		845E0BB929CD140900D9FE86 /* NotableLoginableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableLoginableTests.swift; sourceTree = "<group>"; };
-		845E0BC729CD19C600D9FE86 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
-		845E0BC829CD19C600D9FE86 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		845E0BCF29CD1F5400D9FE86 /* Loginable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loginable.swift; sourceTree = "<group>"; };
 		845E0BD129CD200600D9FE86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		845E0BD229CD200600D9FE86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -68,6 +67,9 @@
 		845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
 		845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 		84FCE35529CE5FB90001FB23 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		84FCE35729CE63E90001FB23 /* NotableNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableNoteTests.swift; sourceTree = "<group>"; };
+		84FCE35929CE65EC0001FB23 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		84FCE35A29CE65EC0001FB23 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		845E0B9F29CD138700D9FE86 /* NotableTests */ = {
 			isa = PBXGroup;
 			children = (
+				84FCE35729CE63E90001FB23 /* NotableNoteTests.swift */,
 				845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */,
 				845E0BB929CD140900D9FE86 /* NotableLoginableTests.swift */,
 				845E0BA029CD138700D9FE86 /* NotableTests.swift */,
@@ -167,10 +170,10 @@
 		845E0BC429CD192C00D9FE86 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				84FCE35929CE65EC0001FB23 /* Note+CoreDataClass.swift */,
+				84FCE35A29CE65EC0001FB23 /* Note+CoreDataProperties.swift */,
 				845E0BD129CD200600D9FE86 /* User+CoreDataClass.swift */,
 				845E0BD229CD200600D9FE86 /* User+CoreDataProperties.swift */,
-				845E0BC729CD19C600D9FE86 /* Note+CoreDataClass.swift */,
-				845E0BC829CD19C600D9FE86 /* Note+CoreDataProperties.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -350,11 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				845E0B9729CD138600D9FE86 /* Notable.xcdatamodeld in Sources */,
-				845E0BCC29CD19C600D9FE86 /* Note+CoreDataProperties.swift in Sources */,
 				845E0BD429CD200600D9FE86 /* User+CoreDataProperties.swift in Sources */,
+				84FCE35B29CE65EC0001FB23 /* Note+CoreDataClass.swift in Sources */,
 				845E0B8D29CD138600D9FE86 /* NotesView.swift in Sources */,
 				845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */,
-				845E0BCB29CD19C600D9FE86 /* Note+CoreDataClass.swift in Sources */,
+				84FCE35C29CE65EC0001FB23 /* Note+CoreDataProperties.swift in Sources */,
 				84FCE35629CE5FB90001FB23 /* AddNoteView.swift in Sources */,
 				845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */,
 				845E0B8B29CD138600D9FE86 /* NotableApp.swift in Sources */,
@@ -371,6 +374,7 @@
 				845E0BA129CD138700D9FE86 /* NotableTests.swift in Sources */,
 				845E0BBA29CD140900D9FE86 /* NotableLoginableTests.swift in Sources */,
 				845E0BD929CD2E6700D9FE86 /* NatableUserTests.swift in Sources */,
+				84FCE35829CE63E90001FB23 /* NotableNoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,9 +23,34 @@ class StorageProvider {
         
         let storageProvider = StorageProvider(inMemory: true)
         
+        return storageProvider
+    }
+    
+    static var previewWithLoggedInUser: StorageProvider {
+        
+        let storageProvider = StorageProvider(inMemory: true)
+        
         // comment out if not wanting to have a logged in user
         try? storageProvider.addUserWithUsername("Test", andLoginToken: "some-login-token")
         try? storageProvider.save()
+        
+        return storageProvider
+    }
+    
+    static var previewWithNotes: StorageProvider {
+        
+        let storageProvider = StorageProvider(inMemory: true)
+        
+        // comment out if not wanting to have a logged in user
+        try? storageProvider.addUserWithUsername("Test", andLoginToken: "some-login-token")
+        try? storageProvider.save()
+        
+        if let user = try? storageProvider.fetchLoggedInUser() {
+            (1...4).forEach { index in
+                try? storageProvider.addNoteWithName("Note \(index)", toUser: user)
+            }
+        }
+        
         
         return storageProvider
     }
@@ -127,6 +152,22 @@ extension StorageProvider {
             persistentContainer.viewContext.rollback()
             throw StorageError.failedToDeleteObject(object: object)
         }
+    }
+    
+}
+
+// MARK: - Notes
+extension StorageProvider {
+    
+    func addNoteWithName(_ noteName: String, toUser user: User) throws {
+        
+        let note = Note(context: persistentContainer.viewContext)
+        note.id = UUID()
+        note.noteName = noteName
+        note.timestamp = Date()
+        note.user = user
+        
+        try save()
     }
     
 }
