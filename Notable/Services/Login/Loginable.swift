@@ -18,7 +18,7 @@ protocol Loginable {
     
     static var validLogins: [String: String?] { get }
     
-    func loginWithUsername(_ username:String, andPassword password: String) throws -> (username: String, loginToken: String)
+    func makeMockLoginRequest(_ username:String, andPassword password: String) throws -> (username: String, loginToken: String)
     
 }
 
@@ -35,7 +35,7 @@ extension Loginable {
 
 extension Loginable {
     
-    func loginWithUsername(_ username:String, andPassword password: String) throws -> (username: String, loginToken: String) {
+    func makeMockLoginRequest(_ username:String, andPassword password: String) throws -> (username: String, loginToken: String) {
         
         // look up user name and password
         
@@ -48,7 +48,7 @@ extension Loginable {
         }
         
         guard pw == password else {
-            throw LoginError.invalidPassword("passwords don't match")
+            throw LoginError.invalidPassword("Invalid Password")
         }
         
         let loginToken = UUID().uuidString

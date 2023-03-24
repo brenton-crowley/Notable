@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		845E0B8B29CD138600D9FE86 /* NotableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0B8A29CD138600D9FE86 /* NotableApp.swift */; };
-		845E0B8D29CD138600D9FE86 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0B8C29CD138600D9FE86 /* ContentView.swift */; };
+		845E0B8D29CD138600D9FE86 /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0B8C29CD138600D9FE86 /* NotesView.swift */; };
 		845E0B8F29CD138600D9FE86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E0B8E29CD138600D9FE86 /* Assets.xcassets */; };
 		845E0B9229CD138600D9FE86 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 845E0B9129CD138600D9FE86 /* Preview Assets.xcassets */; };
 		845E0B9729CD138600D9FE86 /* Notable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845E0B9529CD138600D9FE86 /* Notable.xcdatamodeld */; };
@@ -22,6 +22,9 @@
 		845E0BD329CD200600D9FE86 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD129CD200600D9FE86 /* User+CoreDataClass.swift */; };
 		845E0BD429CD200600D9FE86 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD229CD200600D9FE86 /* User+CoreDataProperties.swift */; };
 		845E0BD629CD214A00D9FE86 /* MyNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD529CD214A00D9FE86 /* MyNotes.swift */; };
+		845E0BD929CD2E6700D9FE86 /* NatableUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */; };
+		845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */; };
+		845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +47,7 @@
 /* Begin PBXFileReference section */
 		845E0B8729CD138600D9FE86 /* Notable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845E0B8A29CD138600D9FE86 /* NotableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableApp.swift; sourceTree = "<group>"; };
-		845E0B8C29CD138600D9FE86 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		845E0B8C29CD138600D9FE86 /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
 		845E0B8E29CD138600D9FE86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		845E0B9129CD138600D9FE86 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		845E0B9629CD138600D9FE86 /* Notable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notable.xcdatamodel; sourceTree = "<group>"; };
@@ -60,6 +63,9 @@
 		845E0BD129CD200600D9FE86 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		845E0BD229CD200600D9FE86 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		845E0BD529CD214A00D9FE86 /* MyNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotes.swift; sourceTree = "<group>"; };
+		845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatableUserTests.swift; sourceTree = "<group>"; };
+		845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +116,11 @@
 		845E0B8929CD138600D9FE86 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
+				845E0BDC29CD489A00D9FE86 /* Features */,
 				845E0BCD29CD1F2D00D9FE86 /* Services */,
 				845E0B8A29CD138600D9FE86 /* NotableApp.swift */,
-				845E0B8C29CD138600D9FE86 /* ContentView.swift */,
 				845E0B8E29CD138600D9FE86 /* Assets.xcassets */,
 				845E0B9029CD138600D9FE86 /* Preview Content */,
-				845E0BD529CD214A00D9FE86 /* MyNotes.swift */,
 			);
 			path = Notable;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 		845E0B9F29CD138700D9FE86 /* NotableTests */ = {
 			isa = PBXGroup;
 			children = (
+				845E0BD829CD2E6700D9FE86 /* NatableUserTests.swift */,
 				845E0BB929CD140900D9FE86 /* NotableLoginableTests.swift */,
 				845E0BA029CD138700D9FE86 /* NotableTests.swift */,
 			);
@@ -151,6 +157,7 @@
 			children = (
 				845E0B9529CD138600D9FE86 /* Notable.xcdatamodeld */,
 				845E0BC429CD192C00D9FE86 /* Subclasses */,
+				845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -181,6 +188,32 @@
 				845E0BCF29CD1F5400D9FE86 /* Loginable.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		845E0BDC29CD489A00D9FE86 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				845E0BE029CD506800D9FE86 /* Notes */,
+				845E0BDD29CD48A700D9FE86 /* User Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		845E0BDD29CD48A700D9FE86 /* User Login */ = {
+			isa = PBXGroup;
+			children = (
+				845E0BDE29CD48B900D9FE86 /* UserLoginView.swift */,
+			);
+			path = "User Login";
+			sourceTree = "<group>";
+		};
+		845E0BE029CD506800D9FE86 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				845E0BD529CD214A00D9FE86 /* MyNotes.swift */,
+				845E0B8C29CD138600D9FE86 /* NotesView.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,8 +349,10 @@
 				845E0B9729CD138600D9FE86 /* Notable.xcdatamodeld in Sources */,
 				845E0BCC29CD19C600D9FE86 /* Note+CoreDataProperties.swift in Sources */,
 				845E0BD429CD200600D9FE86 /* User+CoreDataProperties.swift in Sources */,
-				845E0B8D29CD138600D9FE86 /* ContentView.swift in Sources */,
+				845E0B8D29CD138600D9FE86 /* NotesView.swift in Sources */,
+				845E0BDB29CD2F3000D9FE86 /* StorageProvider.swift in Sources */,
 				845E0BCB29CD19C600D9FE86 /* Note+CoreDataClass.swift in Sources */,
+				845E0BDF29CD48B900D9FE86 /* UserLoginView.swift in Sources */,
 				845E0B8B29CD138600D9FE86 /* NotableApp.swift in Sources */,
 				845E0BD029CD1F5400D9FE86 /* Loginable.swift in Sources */,
 				845E0BD329CD200600D9FE86 /* User+CoreDataClass.swift in Sources */,
@@ -331,6 +366,7 @@
 			files = (
 				845E0BA129CD138700D9FE86 /* NotableTests.swift in Sources */,
 				845E0BBA29CD140900D9FE86 /* NotableLoginableTests.swift in Sources */,
+				845E0BD929CD2E6700D9FE86 /* NatableUserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

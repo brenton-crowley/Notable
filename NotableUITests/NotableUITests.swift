@@ -6,28 +6,22 @@
 //
 
 import XCTest
+@testable import Notable
 
 final class NotableUITests: XCTestCase {
     
+    var app: XCUIApplication!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        try super.setUpWithError()
         continueAfterFailure = false
-        
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        app = XCUIApplication()
+        app.launch()
     }
     
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-        
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app = nil
+        try super.tearDownWithError()
     }
     
     func testLaunchPerformance() throws {
@@ -40,17 +34,38 @@ final class NotableUITests: XCTestCase {
     }
     
     // Feature: User Login
+
     // Scenario: Login screen
+//        As a user, I should be able to log in
     func testOpenLoginScreenOnFirstRun() throws {
-        
-        //        As a user, I should be able to log in
-        //        Given I open the app for the very first time Then I should see a Login screen
+//        Given I open the app for the very first time Then I should see a Login screen
+        let isFirstLaunchKey = "IsFirstLaunchKey"
+        let userDefaults = UserDefaults.standard
+        XCTAssertFalse(userDefaults.bool(forKey: isFirstLaunchKey), "isFirstLaunchKey should initially be false")
+
+        // simulate app launch for the first time
+        userDefaults.set(true, forKey: isFirstLaunchKey)
+        userDefaults.synchronize()
+
+        let loginTitle = app.navigationBars["User Login"].staticTexts["User Login"]
+        XCTAssertTrue(loginTitle.exists)
+
+        XCTAssertTrue(userDefaults.bool(forKey: isFirstLaunchKey), "isFirstLaunchKey should be true after app is launched for the first time")
     }
     //Scenario: Login successful
-    //Given I type my username in the "Username" field
-    //And password in the "Password" field
-    //When I press the login button
-    //Then I should see an alert "Login Successful"
+    func testSuccessfulLogin() throws {
+        //Given I type my username in the "Username" field
+        //And password in the "Password" field
+        app.textFields.element.typeText("mike_")
+        app.secureTextFields.element.typeText("20Mike")
+                
+        //When I press the login button
+        
+        
+        //Then I should see an alert "Login Successful"
+        
+
+    }
     
     //Scenario: Home screen after successful login
     //Given I type my username in the "Username" field And password in the "Password" field

@@ -30,9 +30,10 @@ final class NotableLoginableTests: XCTestCase {
         let password = "20Mike"
         
         // then return a user with a login token
-        let result = try sut.loginWithUsername(username, andPassword: password)
+        let result = try sut.makeMockLoginRequest(username, andPassword: password)
         
         XCTAssertNotNil(result)
+        XCTAssertEqual(username, result.username)
         
     }
     
@@ -42,7 +43,7 @@ final class NotableLoginableTests: XCTestCase {
         let password = "ZoPW_98"
         
         // then return a user with a login token
-        XCTAssertThrowsError(try sut.loginWithUsername(username, andPassword: password))
+        XCTAssertThrowsError(try sut.makeMockLoginRequest(username, andPassword: password))
         
     }
     
@@ -52,7 +53,7 @@ final class NotableLoginableTests: XCTestCase {
         let password = "ZoPW_98"
         
         // then return a user with a login token
-        XCTAssertThrowsError(try sut.loginWithUsername(username, andPassword: password))
+        XCTAssertThrowsError(try sut.makeMockLoginRequest(username, andPassword: password))
         
     }
     
@@ -62,7 +63,7 @@ final class NotableLoginableTests: XCTestCase {
         let password = "ZoPW_98"
         
         // then return a user with a login token
-        XCTAssertThrowsError(try sut.loginWithUsername(username, andPassword: password))
+        XCTAssertThrowsError(try sut.makeMockLoginRequest(username, andPassword: password))
         
     }
 
