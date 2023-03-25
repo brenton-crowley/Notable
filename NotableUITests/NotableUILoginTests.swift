@@ -8,7 +8,7 @@
 import XCTest
 @testable import Notable
 
-final class NotableUITests: XCTestCase {
+final class NotableUILoginTests: XCTestCase {
     
     var app: XCUIApplication!
     
@@ -27,22 +27,22 @@ final class NotableUITests: XCTestCase {
     }
     
     // Feature: User Login
-
+    
     // Scenario: Login screen
-//        As a user, I should be able to log in
+    //        As a user, I should be able to log in
     func testOpenLoginScreenOnFirstRun() throws {
-//        Given I open the app for the very first time Then I should see a Login screen
+        //        Given I open the app for the very first time Then I should see a Login screen
         let isFirstLaunchKey = "IsFirstLaunchKey"
         let userDefaults = UserDefaults.standard
         XCTAssertFalse(userDefaults.bool(forKey: isFirstLaunchKey), "isFirstLaunchKey should initially be false")
-
+        
         // simulate app launch for the first time
         userDefaults.set(true, forKey: isFirstLaunchKey)
         userDefaults.synchronize()
-
+        
         let loginTitle = app.navigationBars["User Login"].staticTexts["User Login"]
         XCTAssertTrue(loginTitle.exists)
-
+        
         XCTAssertTrue(userDefaults.bool(forKey: isFirstLaunchKey), "isFirstLaunchKey should be true after app is launched for the first time")
     }
     
@@ -78,7 +78,7 @@ final class NotableUITests: XCTestCase {
         XCTAssertTrue(successTitle.exists)
         
         //Then I should see the alert "Login Successful" When I tap the "Okay" button
-        let myNotesScreen = app.navigationBars["MyNotes"].staticTexts["MyNotes"]
+        let myNotesScreen = app.navigationBars["Notable"].staticTexts["Notable"]
         XCTAssertTrue(myNotesScreen.exists)
         
     }
@@ -112,14 +112,62 @@ final class NotableUITests: XCTestCase {
         app.launch()
         
         //Then I should see the alert "Login Successful" When I tap the "Okay" button
-        let myNotesScreen = app.navigationBars["MyNotes"].staticTexts["MyNotes"]
+        let myNotesScreen = app.navigationBars["Notable"].staticTexts["Notable"]
         XCTAssertTrue(myNotesScreen.exists)
+    }
+    
+    //Scenario: Test log out
+    func testLogOutUser() {
+        //Given a logged in user
+        let testEnv: String = "UI_TEST_ENV_LOGGED_IN_USER"
+        app = XCUIApplication()
+        app.launchArguments = [testEnv]
+        app.launch()
+        
+        // Then I press the log out button
+        let logOutButton = app.navigationBars["Notable"]/*@START_MENU_TOKEN@*/.buttons["Log out"]/*[[".otherElements[\"Log out\"].buttons[\"Log out\"]",".buttons[\"Log out\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(logOutButton.exists)
+        
+        logOutButton.tap()
+        
+        //Then I should see the login screen
+        let loginTitle = app.navigationBars["User Login"].staticTexts["User Login"]
+        XCTAssertTrue(loginTitle.exists)
+    }
+    
+    //Scenario: Switch users
+    func testSwitchFromTestToMikeUser() {
+        //Given a logged in user
+        let testEnv: String = "UI_TEST_ENV_LOGGED_IN_USER"
+        app = XCUIApplication()
+        app.launchArguments = [testEnv]
+        app.launch()
+        
+        let testLoginNotes = app.staticTexts["Test's Notes"]
+        XCTAssertTrue(testLoginNotes.exists)
+        
+        // Then I press the log out button
+        let logOutButton = app.navigationBars["Notable"]/*@START_MENU_TOKEN@*/.buttons["Log out"]/*[[".otherElements[\"Log out\"].buttons[\"Log out\"]",".buttons[\"Log out\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(logOutButton.exists)
+        
+        logOutButton.tap()
+        
+        //Then I should see the login screen
+        let loginTitle = app.navigationBars["User Login"].staticTexts["User Login"]
+        XCTAssertTrue(loginTitle.exists)
+        
+        // Includes alert feedback
+        performValidLogin(username: "mike_", password: "20Mike")
+        
+        //Then I should see the alert "Login Successful" When I tap the "Okay" button
+        let mikesNotes = app/*@START_MENU_TOKEN@*/.staticTexts["mike_'s Notes"]/*[[".cells.staticTexts[\"mike_'s Notes\"]",".staticTexts[\"mike_'s Notes\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(mikesNotes.exists)
     }
 }
 
 /// I've created some convenience methods for repeatable code. Not sure if this is best practice or not. I could see it going either way
 /// Reduces clutter at the expenses of some readability with the assert statements.
-extension NotableUITests {
+extension NotableUILoginTests {
     
     func enterUsername(_ usernameText: String, andPassword passwordText:String ) {
         
@@ -187,11 +235,11 @@ extension XCUIElement {
             XCTFail("Tried to clear and enter text into a non string value")
             return
         }
-
+        
         self.tap()
-
+        
         let deleteString = String(repeating: XCUIKeyboardKey.delete.rawValue, count: stringValue.count)
-
+        
         self.typeText(deleteString)
         self.typeText(text)
     }

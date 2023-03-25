@@ -17,6 +17,8 @@ class MyNotes: ObservableObject, Loginable {
     
     private let storageProvider: StorageProvider
     
+    /// Sort the notes based on a timestamp of creation.
+    /// You could also make a fetchRequest with a predicate and sortDescriptors
     var notes: [Note]? {
         let notes = user?.notes?.allObjects as? [Note]
         
@@ -32,6 +34,8 @@ class MyNotes: ObservableObject, Loginable {
         if self.user == nil { self.presentLoginScreen = true }
     }
     
+    /// User intent to log in.
+    /// Displays an alert of a successful or failed log in attempt with feedback.
     func tryLoginWithUsername(_ username: String, andPassword password: String) {
         
         do {
@@ -67,13 +71,23 @@ class MyNotes: ObservableObject, Loginable {
         self.showAlert = true
     }
     
+    func logOut() {
+        self.user?.loginToken = nil
+        try? storageProvider.save()
+        self.user = nil
+        
+        self.presentLoginScreen = true
+    }
+    
+    /// Creates a new note in the core data store with the supplied name.
     func makeNoteWithName(_ noteName: String) {
         if let user = self.user {
             try? storageProvider.addNoteWithName(noteName, toUser: user)
-            objectWillChange.send()
+            objectWillChange.send() // Tells the view that it needs to redraw itself based on a model change
         }
     }
     
+    /// Deletes a note from the core data store at the specified indicies.
     func deleteNotes(fromOffsets offsets: IndexSet) {
         
         guard let notes = notes,

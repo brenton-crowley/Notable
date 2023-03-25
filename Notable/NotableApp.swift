@@ -10,8 +10,6 @@ import SwiftUI
 @main
 struct NotableApp: App {
     
-//    let isTesting = ((ProcessInfo.processInfo.arguments.first { $0 == "UI_TESTING" }) != nil)
-    
     var storageProvider: StorageProvider {
         
         let arguments = ProcessInfo.processInfo.arguments

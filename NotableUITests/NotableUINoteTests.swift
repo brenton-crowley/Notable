@@ -8,7 +8,7 @@
 import XCTest
 @testable import Notable
 
-final class NotableUIAddNoteTests: XCTestCase {
+final class NotableUINoteTests: XCTestCase {
     
     var app: XCUIApplication!
     
@@ -36,7 +36,7 @@ final class NotableUIAddNoteTests: XCTestCase {
         app.launch()
         
         //And all data cleared
-        let myNotesScreen = app.navigationBars["MyNotes"].staticTexts["MyNotes"]
+        let myNotesScreen = app.navigationBars["Notable"].staticTexts["Notable"]
         XCTAssertTrue(myNotesScreen.exists)
         
         // Then I add a note
@@ -57,7 +57,7 @@ final class NotableUIAddNoteTests: XCTestCase {
         app.launch()
         
         //Given it is notes screen
-        let myNotesScreen = app.navigationBars["MyNotes"].staticTexts["MyNotes"]
+        let myNotesScreen = app.navigationBars["Notable"].staticTexts["Notable"]
         XCTAssertTrue(myNotesScreen.exists)
         
         //Examples:
@@ -121,11 +121,11 @@ final class NotableUIAddNoteTests: XCTestCase {
 }
 
 // MARK: Helper Functions
-extension NotableUIAddNoteTests {
+extension NotableUINoteTests {
     
     func addNote(noteName: String) {
         //Then I tap the "Add Note" button
-        let addButton = app.navigationBars["MyNotes"]/*@START_MENU_TOKEN@*/.buttons["Add"]/*[[".otherElements[\"Add\"].buttons[\"Add\"]",".buttons[\"Add\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let addButton = app.navigationBars["Notable"]/*@START_MENU_TOKEN@*/.buttons["Add"]/*[[".otherElements[\"Add\"].buttons[\"Add\"]",".buttons[\"Add\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         XCTAssertTrue(addButton.exists)
         addButton.tap()
         
