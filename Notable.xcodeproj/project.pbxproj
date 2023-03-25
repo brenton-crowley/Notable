@@ -27,6 +27,7 @@
 		84FCE35829CE63E90001FB23 /* NotableNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35729CE63E90001FB23 /* NotableNoteTests.swift */; };
 		84FCE35B29CE65EC0001FB23 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35929CE65EC0001FB23 /* Note+CoreDataClass.swift */; };
 		84FCE35C29CE65EC0001FB23 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35A29CE65EC0001FB23 /* Note+CoreDataProperties.swift */; };
+		84FCE35E29CE78CC0001FB23 /* NotableUIAddNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCE35D29CE78CC0001FB23 /* NotableUIAddNoteTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		84FCE35729CE63E90001FB23 /* NotableNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableNoteTests.swift; sourceTree = "<group>"; };
 		84FCE35929CE65EC0001FB23 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		84FCE35A29CE65EC0001FB23 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		84FCE35D29CE78CC0001FB23 /* NotableUIAddNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotableUIAddNoteTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 		845E0BA929CD138700D9FE86 /* NotableUITests */ = {
 			isa = PBXGroup;
 			children = (
+				84FCE35D29CE78CC0001FB23 /* NotableUIAddNoteTests.swift */,
 				845E0BAA29CD138700D9FE86 /* NotableUITests.swift */,
 				845E0BAC29CD138700D9FE86 /* NotableUITestsLaunchTests.swift */,
 			);
@@ -181,6 +184,7 @@
 		845E0BCD29CD1F2D00D9FE86 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				84F7C4FE29CE809E00181D39 /* Utils */,
 				845E0BCE29CD1F3D00D9FE86 /* Login */,
 				845E0BC329CD191B00D9FE86 /* Storage */,
 			);
@@ -220,6 +224,13 @@
 				84FCE35529CE5FB90001FB23 /* AddNoteView.swift */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		84F7C4FE29CE809E00181D39 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845E0BAD29CD138700D9FE86 /* NotableUITestsLaunchTests.swift in Sources */,
+				84FCE35E29CE78CC0001FB23 /* NotableUIAddNoteTests.swift in Sources */,
 				845E0BAB29CD138700D9FE86 /* NotableUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

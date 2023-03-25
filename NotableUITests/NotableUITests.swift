@@ -15,7 +15,9 @@ final class NotableUITests: XCTestCase {
     override func setUpWithError() throws {
         try super.setUpWithError()
         continueAfterFailure = false
+        let testEnv: String = "UI_TEST_ENV_EMPTY" // Xcode wouldn't let me use an enum or static var 🤷‍♂️
         app = XCUIApplication()
+        app.launchArguments = [testEnv]
         app.launch()
     }
     
@@ -52,23 +54,31 @@ final class NotableUITests: XCTestCase {
 
         XCTAssertTrue(userDefaults.bool(forKey: isFirstLaunchKey), "isFirstLaunchKey should be true after app is launched for the first time")
     }
+    
     //Scenario: Login successful
     func testSuccessfulLogin() throws {
         
-        //Given I type my username in the "Username" field
-        let collectionViewsQuery = app.collectionViews
-        let textView = collectionViewsQuery.children(matching: .cell).element(boundBy: 1).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .textView).element
-        textView.tap()
-        textView.typeText("mike_")
         
-        let secureTextField = app/*@START_MENU_TOKEN@*/.collectionViews.containing(.other, identifier:"Vertical scroll bar, 1 page")/*[[".collectionViews.containing(.other, identifier:\"Horizontal scroll bar, 1 page\")",".collectionViews.containing(.other, identifier:\"Vertical scroll bar, 1 page\")"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.children(matching: .cell).element(boundBy: 3).children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element.children(matching: .secureTextField).element
+        //Given I type my username in the "Username" field
+        let username = app.collectionViews/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".cells.textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        XCTAssertTrue(username.exists)
+        
+        username.tap()
+        username.typeText("mike_")
+        
+        let password = app.collectionViews/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".cells.secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
 
+        XCTAssertTrue(password.exists)
+        
         //And password in the "Password" field
-        secureTextField.tap()
-        secureTextField.typeText("20Mike")
+        password.tap()
+        password.typeText("20Mike")
         
         //When I press the login button
-        app.navigationBars["User Login"]/*@START_MENU_TOKEN@*/.buttons["Login"]/*[[".otherElements[\"Login\"].buttons[\"Login\"]",".buttons[\"Login\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        let loginButton = app.navigationBars["User Login"]/*@START_MENU_TOKEN@*/.buttons["Login"]/*[[".otherElements[\"Login\"].buttons[\"Login\"]",".buttons[\"Login\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        XCTAssertTrue(loginButton.exists)
+        loginButton.tap()
         
         let elementsQuery = app.alerts["Login Successful"].scrollViews.otherElements
         let successTitle = elementsQuery.staticTexts["Login Successful"]
@@ -95,9 +105,6 @@ final class NotableUITests: XCTestCase {
         
         let elementsQuery = app.alerts["Login Successful"].scrollViews.otherElements
         //Then I should see the alert "Login Successful" When I tap the "Okay" button
-        let successTitle = elementsQuery.staticTexts["Login Successful"]
-        
-        //Then I should see the "Notes" screen
         
     }
     

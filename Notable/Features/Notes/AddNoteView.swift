@@ -24,10 +24,9 @@ struct AddNoteView: View {
     var body: some View {
         NavigationView {
             List {
-                TextEditor(text: $noteNameText)
+                TextField("NoteName", text: $noteNameText)
                     .font(.callout)
-                    .multilineTextAlignment(.leading)
-//                    .frame(height: height)
+                    .textContentType(.name)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle(Constants.viewTitle)

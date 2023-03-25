@@ -47,7 +47,7 @@ class StorageProvider {
         
         if let user = try? storageProvider.fetchLoggedInUser() {
             (1...4).forEach { index in
-                try? storageProvider.addNoteWithName("Note \(index)", toUser: user)
+                try? storageProvider.addNoteWithName("Note\(index)", toUser: user)
             }
         }
         

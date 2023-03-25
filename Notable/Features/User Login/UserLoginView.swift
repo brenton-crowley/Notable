@@ -99,10 +99,10 @@ struct UserLoginView: View {
             
             Section {
                 if isSecure {
-                    SecureField("", text: boundText)
+                    SecureField("Password", text: boundText)
                         .textContentType(.password)
                 } else {
-                    TextEditor(text: boundText)
+                    TextField("Username", text: boundText)
                         .font(.callout)
                         .frame(height: height)
                         .textContentType(.username)

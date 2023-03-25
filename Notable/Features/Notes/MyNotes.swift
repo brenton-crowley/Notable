@@ -17,6 +17,12 @@ class MyNotes: ObservableObject, Loginable {
     
     private let storageProvider: StorageProvider
     
+    var notes: [Note]? {
+        let notes = user?.notes?.allObjects as? [Note]
+        
+        return notes?.sorted { $0.timestamp < $1.timestamp }
+    }
+    
     init(storageProvider:StorageProvider = StorageProvider.preview) {
         
         self.storageProvider = storageProvider
@@ -70,12 +76,14 @@ class MyNotes: ObservableObject, Loginable {
     
     func deleteNotes(fromOffsets offsets: IndexSet) {
         
-        guard let notes = user?.notes?.allObjects as? [Note],
+        guard let notes = notes,
               notes.count > 0 else { return }
         
-        for index in offsets {
+        offsets.forEach { index in
             let note = notes[index]
-            try? storageProvider.delete(note)    
+            try? storageProvider.delete(note)
         }
+        
+        objectWillChange.send()
     }
 }

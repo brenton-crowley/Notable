@@ -19,16 +19,18 @@ struct NotesView: View {
     @EnvironmentObject private var myNotes: MyNotes
     
     @State private var isAddNotePresented: Bool = false
+    @State private var showDeleteAlert = false
+    @State private var currentNote: Note?
     
     var body: some View {
         
         NavigationView {
             Group {
-                if let notes = myNotes.user?.notes?.allObjects as? [Note],
+                if let notes = myNotes.notes,
                    notes.count > 0 {
                     List {
                         ForEach (notes) { note in
-                            Text(note.noteName ?? "")
+                            noteRow(note)
                         }
                         .onDelete(perform: myNotes.deleteNotes)
                     }
@@ -38,6 +40,9 @@ struct NotesView: View {
             }
             .navigationTitle(Constants.navigationTitle)
             .navigationBarTitleDisplayMode(.inline)
+            .alert("Delete: \(currentNote?.noteName ?? "")", isPresented: $showDeleteAlert, actions: {
+                deleteNoteButton
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     addNoteButton
@@ -49,17 +54,34 @@ struct NotesView: View {
         })
         .fullScreenCover(
             isPresented: $myNotes.presentLoginScreen) {
-                UserLoginView(isPresented: $myNotes.presentLoginScreen)
-                    .alert(myNotes.alertText ?? "",
-                           isPresented: $myNotes.showAlert) {
-                        Button("OK", role: .cancel) {
-                            myNotes.alertText = nil
-                            if myNotes.user != nil { myNotes.presentLoginScreen = false }
-                        }
-                    }
+                userLoginView
             }
             
         
+    }
+    
+    @ViewBuilder
+    func noteRow(_ note: Note) -> some View {
+        HStack {
+            Text(note.noteName ?? "")
+                .onTapGesture {
+                    //
+                    currentNote = note
+                    showDeleteAlert = true
+                }
+            Spacer()
+        }
+    }
+    
+    var userLoginView: some View {
+        UserLoginView(isPresented: $myNotes.presentLoginScreen)
+            .alert(myNotes.alertText ?? "",
+                   isPresented: $myNotes.showAlert) {
+                Button("OK", role: .cancel) {
+                    myNotes.alertText = nil
+                    if myNotes.user != nil { myNotes.presentLoginScreen = false }
+                }
+            }
     }
     
     var addNoteButton: some View {
@@ -70,6 +92,20 @@ struct NotesView: View {
         }
         .sheet(isPresented: $isAddNotePresented) {
             AddNoteView(isPresented: $isAddNotePresented)
+        }
+    }
+    
+    var deleteNoteButton: some View {
+        Button("Delete", role: .destructive) {
+            
+            if let currentNote = currentNote,
+               let index = myNotes.notes?.firstIndex(of: currentNote) {
+                let indexSet = IndexSet([index])
+                myNotes.deleteNotes(fromOffsets: indexSet)
+            }
+            
+            currentNote = nil
+            showDeleteAlert = false
         }
     }
     
