@@ -26,15 +26,6 @@ final class NotableUIAddNoteTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
-    }
-    
     //Scenario: Add a note
     func testAddNote() {
         //Given it is notes screen
