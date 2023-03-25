@@ -11,11 +11,11 @@ https://user-images.githubusercontent.com/1415689/227746222-a3351c1c-56f1-42f3-8
 ## Features
 - Login with users
 Examples:
-| username | password \n
-| mike_ | 20Mike -> true
-| john01 | Ab01@1 -> false
-| nikita | ZoPW_98 -> false
-| test | test2@ -> true
+- | username | password
+- | mike_ | 20Mike -> true
+- | john01 | Ab01@1 -> false
+- | nikita | ZoPW_98 -> false
+- | test | test2@ -> true
 
 - Add notes using + button
 - Delete notes via swipe or tap on note name
