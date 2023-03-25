@@ -61,4 +61,21 @@ class MyNotes: ObservableObject, Loginable {
         self.showAlert = true
     }
     
+    func makeNoteWithName(_ noteName: String) {
+        if let user = self.user {
+            try? storageProvider.addNoteWithName(noteName, toUser: user)
+            objectWillChange.send()
+        }
+    }
+    
+    func deleteNotes(fromOffsets offsets: IndexSet) {
+        
+        guard let notes = user?.notes?.allObjects as? [Note],
+              notes.count > 0 else { return }
+        
+        for index in offsets {
+            let note = notes[index]
+            try? storageProvider.delete(note)    
+        }
+    }
 }

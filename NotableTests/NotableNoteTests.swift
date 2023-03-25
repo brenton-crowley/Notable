@@ -87,14 +87,4 @@ final class NotableNoteTests: XCTestCase {
         
     }
     
-    func testFetchSortedNotesForUser() {
-        
-        // given
-        sut = StorageProvider.previewWithNotes
-        user = try? sut.fetchLoggedInUser()
-        
-        let sortedNotes = sut.fetchAllNotesSortedByCreationDateForUser(user)
-        
-    }
-    
 }

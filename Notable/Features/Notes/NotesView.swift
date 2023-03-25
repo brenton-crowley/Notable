@@ -20,21 +20,20 @@ struct NotesView: View {
     
     @State private var isAddNotePresented: Bool = false
     
-    private var userNotes: [Note]? {
-        if let notes = myNotes.user?.notes?.allObjects as? [Note] {
-            return notes.sorted { $0.timestamp ?? Date() < $1.timestamp ?? Date() }
-        }
-        return nil
-    }
-    
     var body: some View {
         
         NavigationView {
             Group {
-                if let notes = userNotes {
-                    List (notes) { note in
-                        Text(note.noteName ?? "")
+                if let notes = myNotes.user?.notes?.allObjects as? [Note],
+                   notes.count > 0 {
+                    List {
+                        ForEach (notes) { note in
+                            Text(note.noteName ?? "")
+                        }
+                        .onDelete(perform: myNotes.deleteNotes)
                     }
+                } else {
+                    Text("Tap + to add a note")
                 }
             }
             .navigationTitle(Constants.navigationTitle)
