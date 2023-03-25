@@ -14,6 +14,8 @@ struct NotesView: View {
         
         static let navigationTitle = "MyNotes"
         static let addNoteIcon = "plus"
+        static let defaultAlertPrompt = "Note"
+        static let noNotesPrompt = "Tap + to add a note"
     }
     
     @EnvironmentObject private var myNotes: MyNotes
@@ -25,29 +27,19 @@ struct NotesView: View {
     var body: some View {
         
         NavigationView {
-            Group {
-                if let notes = myNotes.notes,
-                   notes.count > 0 {
-                    List {
-                        ForEach (notes) { note in
-                            noteRow(note)
-                        }
-                        .onDelete(perform: myNotes.deleteNotes)
+            notesList
+                .navigationTitle(Constants.navigationTitle)
+                .navigationBarTitleDisplayMode(.inline)
+                .alert("Delete: \(currentNote?.noteName ?? Constants.defaultAlertPrompt)",
+                       isPresented: $showDeleteAlert,
+                       actions: {
+                    deleteNoteButton
+                })
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        addNoteButton
                     }
-                } else {
-                    Text("Tap + to add a note")
                 }
-            }
-            .navigationTitle(Constants.navigationTitle)
-            .navigationBarTitleDisplayMode(.inline)
-            .alert("Delete: \(currentNote?.noteName ?? "")", isPresented: $showDeleteAlert, actions: {
-                deleteNoteButton
-            })
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    addNoteButton
-                }
-            }
         }
         .onAppear(perform: {
             
@@ -56,8 +48,24 @@ struct NotesView: View {
             isPresented: $myNotes.presentLoginScreen) {
                 userLoginView
             }
-            
         
+        
+    }
+    
+    var notesList: some View {
+        Group {
+            if let notes = myNotes.notes,
+               notes.count > 0 {
+                List {
+                    ForEach (notes) { note in
+                        noteRow(note)
+                    }
+                    .onDelete(perform: myNotes.deleteNotes) // Swipe to delete functionality
+                }
+            } else {
+                Text(Constants.noNotesPrompt) // If user has no notes, prompt to add a note.
+            }
+        }
     }
     
     @ViewBuilder

@@ -99,6 +99,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843ADE2B29CEC7A100DC71D3 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				845E0B8C29CD138600D9FE86 /* NotesView.swift */,
+				84FCE35529CE5FB90001FB23 /* AddNoteView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		843ADE2C29CEC7A900DC71D3 /* view models */ = {
+			isa = PBXGroup;
+			children = (
+				845E0BD529CD214A00D9FE86 /* MyNotes.swift */,
+			);
+			path = "view models";
+			sourceTree = "<group>";
+		};
 		845E0B7E29CD138500D9FE86 = {
 			isa = PBXGroup;
 			children = (
@@ -122,8 +139,8 @@
 		845E0B8929CD138600D9FE86 /* Notable */ = {
 			isa = PBXGroup;
 			children = (
-				845E0BDC29CD489A00D9FE86 /* Features */,
 				845E0BCD29CD1F2D00D9FE86 /* Core */,
+				845E0BDC29CD489A00D9FE86 /* Features */,
 				845E0B8A29CD138600D9FE86 /* NotableApp.swift */,
 				845E0B8E29CD138600D9FE86 /* Assets.xcassets */,
 				845E0B9029CD138600D9FE86 /* Preview Content */,
@@ -163,9 +180,9 @@
 		845E0BC329CD191B00D9FE86 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */,
 				845E0B9529CD138600D9FE86 /* Notable.xcdatamodeld */,
 				845E0BC429CD192C00D9FE86 /* Subclasses */,
-				845E0BDA29CD2F3000D9FE86 /* StorageProvider.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -184,7 +201,6 @@
 		845E0BCD29CD1F2D00D9FE86 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				84F7C4FE29CE809E00181D39 /* Utils */,
 				845E0BCE29CD1F3D00D9FE86 /* Login */,
 				845E0BC329CD191B00D9FE86 /* Storage */,
 			);
@@ -219,18 +235,10 @@
 		845E0BE029CD506800D9FE86 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
-				845E0BD529CD214A00D9FE86 /* MyNotes.swift */,
-				845E0B8C29CD138600D9FE86 /* NotesView.swift */,
-				84FCE35529CE5FB90001FB23 /* AddNoteView.swift */,
+				843ADE2C29CEC7A900DC71D3 /* view models */,
+				843ADE2B29CEC7A100DC71D3 /* views */,
 			);
 			path = Notes;
-			sourceTree = "<group>";
-		};
-		84F7C4FE29CE809E00181D39 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

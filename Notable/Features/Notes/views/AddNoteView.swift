@@ -52,7 +52,6 @@ struct AddNoteView: View {
     var saveButton: some View {
         
         Button("Save") {
-            //TODO: connects with the viewmodel
             let cleandedNoteName = noteNameText.trimmingCharacters(in: .whitespacesAndNewlines)
 
             myNotes.makeNoteWithName(cleandedNoteName)

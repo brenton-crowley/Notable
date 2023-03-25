@@ -78,6 +78,7 @@ class StorageProvider {
     }
 }
 
+// MARK: - User
 extension StorageProvider {
     
     // adds a new user to the data model unless that username already exists.
@@ -139,6 +140,23 @@ extension StorageProvider {
     }
 }
 
+// MARK: - Notes
+extension StorageProvider {
+    
+    func addNoteWithName(_ noteName: String, toUser user: User) throws {
+        
+        let note = Note(context: persistentContainer.viewContext)
+        note.id = UUID()
+        note.noteName = noteName
+        note.timestamp = Date()
+        note.user = user
+        
+        try save()
+    }
+    
+}
+
+// MARK: - Shared
 extension StorageProvider {
     
     /// Generic method to delete either a user or a note from the store.
@@ -152,22 +170,6 @@ extension StorageProvider {
             persistentContainer.viewContext.rollback()
             throw StorageError.failedToDeleteObject(object: object)
         }
-    }
-    
-}
-
-// MARK: - Notes
-extension StorageProvider {
-    
-    func addNoteWithName(_ noteName: String, toUser user: User) throws {
-        
-        let note = Note(context: persistentContainer.viewContext)
-        note.id = UUID()
-        note.noteName = noteName
-        note.timestamp = Date()
-        note.user = user
-        
-        try save()
     }
     
 }

@@ -35,9 +35,6 @@ struct UserLoginView: View {
             .navigationTitle(Constants.viewTitle)
             .listStyle(.insetGrouped)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-//                    dismissButton
-                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     loginButton
                 }
@@ -47,19 +44,9 @@ struct UserLoginView: View {
     
     // MARK: - Toolbar Buttons
     
-    var dismissButton: some View {
-        
-        Button("Cancel") {
-            isPresented = false
-        }
-    }
-    
     var loginButton: some View {
         
         Button("Login") {
-            //TODO: connects with the viewmodel
-            // send the username text and the password
-            // once success, then isPresented = false
             let cleandedUsername = usernameText.trimmingCharacters(in: .whitespacesAndNewlines)
             let cleandedPassword = passwordText.trimmingCharacters(in: .whitespacesAndNewlines)
             
